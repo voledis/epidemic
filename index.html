@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<title>Магическое Колесо</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap');
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body {
+    background: #1a1a1f;
+    color: #c8c0b0;
+    font-family: 'Cinzel', serif;
+    min-height: 100vh;
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-x: hidden;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .levels {
+    display: flex; gap: 8px; margin: 30px 0 16px; flex-wrap: wrap; justify-content: center; padding: 0 12px;
+  }
+  .levels button {
+    background: #2a2a30; color: #8a8070; border: 1px solid #3a3a40;
+    padding: 8px 20px; font-family: inherit; font-size: 14px; cursor: pointer;
+    transition: .2s; -webkit-appearance: none; border-radius: 0;
+  }
+  .levels button:hover { border-color: #6a5a4a; color: #c8c0b0; }
+  .levels button.active { background: #3a2a20; border-color: #7a5a3a; color: #e0d0b0; }
+  .desc {
+    max-width: 560px; text-align: center; font-size: 13px;
+    line-height: 1.6; color: #9a9080; margin-bottom: 24px; padding: 0 16px;
+  }
+  .wheel-container { width: 540px; height: 540px; transform-origin: top center; }
+  .wheel-wrap { position: relative; width: 540px; height: 540px; transform-origin: top left; }
+  .ring { position: absolute; border: 1px solid #3a3035; border-radius: 50%; }
+  .ring-outer { width:480px; height:480px; top:30px; left:30px; }
+  .ring-inner { width:260px; height:260px; top:140px; left:140px; }
+  .ax { position: absolute; background: #3a3035; }
+  .ax-top    { width:1px; height:110px; top:30px;  left:270px; }
+  .ax-bottom { width:1px; height:110px; top:400px; left:270px; }
+  .ax-left   { height:1px; width:110px; top:270px; left:30px; }
+  .ax-right  { height:1px; width:110px; top:270px; left:400px; }
+  .el {
+    position: absolute; display: flex; flex-direction: column; align-items: center;
+    text-decoration: none; transition: transform .2s;
+  }
+  .el:hover { transform: scale(1.15); }
+  .el img {
+    width: 48px; height: 48px; border-radius: 50%;
+    border: 1px solid #4a3a30; filter: drop-shadow(0 0 6px rgba(100,70,40,.4));
+  }
+  .el .tip {
+    position: absolute; bottom: -22px; white-space: nowrap;
+    font-size: 11px; color: #b0a090; opacity: 0;
+    transition: opacity .2s; pointer-events: none; text-shadow: 0 0 4px #000;
+  }
+  .el:hover .tip { opacity: 1; }
+  .el.pos-left .tip  { left: 0; }
+  .el.pos-right .tip { right: 0; }
+
+  @media (hover: none) {
+    .el .tip { opacity: 0; }
+    .el.selected .tip { opacity: 1; }
+    .el:active { transform: scale(1.15); }
+  }
+
+  .hidden { display: none; }
+  .placeholder { margin-top: 80px; color: #5a5050; font-size: 15px; }
+</style>
+</head>
+<body>
+
+<div class="levels">
+  <button class="active" onclick="showLevel(1)">Уровень 1</button>
+  <button onclick="showLevel(2)">Уровень 2</button>
+  <button onclick="showLevel(3)">Уровень 3</button>
+  <button onclick="showLevel(4)">Уровень 4</button>
+  <button onclick="showLevel(5)">Уровень 5</button>
+</div>
+<div class="desc" id="desc">Магическое колесо отображает систему элементов, через которые проявляются чары. Чтобы перейти на следующий уровень, нужно потратить 50 очков вдохновения.</div>
+
+<div class="wheel-container" id="level1">
+  <div class="wheel-wrap">
+    <div class="ring ring-outer"></div>
+    <div class="ring ring-inner"></div>
+    <div class="ax ax-top"></div>
+    <div class="ax ax-bottom"></div>
+    <div class="ax ax-left"></div>
+    <div class="ax ax-right"></div>
+
+    <!-- Внешнее кольцо -->
+    <a class="el" href="https://telegra.ph/Nejkos-11-15" target="_blank" style="top:6px;left:246px;">
+      <img src="нейкос.png" alt="Нейкос"><span class="tip">Нейкос</span>
+    </a>
+    <a class="el pos-right" href="https://telegra.ph/Gibris-11-16" target="_blank" style="top:246px;left:486px;">
+      <img src="гибрис.png" alt="Гибрис"><span class="tip">Гибрис</span>
+    </a>
+    <a class="el" href="https://telegra.ph/Filotes-11-15" target="_blank" style="top:486px;left:246px;">
+      <img src="филотес.png" alt="Филотес"><span class="tip">Филотес</span>
+    </a>
+    <a class="el pos-left" href="https://telegra.ph/Sofrosiune-11-16" target="_blank" style="top:246px;left:6px;">
+      <img src="софросиуне.png" alt="Софросиуне"><span class="tip">Софросиуне</span>
+    </a>
+
+    <!-- Внутреннее кольцо -->
+    <a class="el" href="https://telegra.ph/Vozduh-11-15-2" target="_blank" style="top:116px;left:246px;">
+      <img src="ветер.png" alt="Воздух"><span class="tip">Воздух</span>
+    </a>
+    <a class="el pos-right" href="https://telegra.ph/Ogon-11-15-3" target="_blank" style="top:246px;left:376px;">
+      <img src="огонь.png" alt="Огонь"><span class="tip">Огонь</span>
+    </a>
+    <a class="el" href="https://telegra.ph/Zemlya-11-15-4" target="_blank" style="top:376px;left:246px;">
+      <img src="земля.png" alt="Земля"><span class="tip">Земля</span>
+    </a>
+    <a class="el pos-left" href="https://telegra.ph/Voda-11-15-2" target="_blank" style="top:246px;left:116px;">
+      <img src="вода.png" alt="Вода"><span class="tip">Вода</span>
+    </a>
+
+    <!-- Центр: Скверна -->
+    <a class="el selected" href="https://telegra.ph/Skverna-11-15" target="_blank" style="top:246px;left:246px;">
+      <img src="скверна.png" alt="Скверна"><span class="tip">Скверна</span>
+    </a>
+  </div>
+</div>
+
+<div class="placeholder hidden" id="level-placeholder">Скоро будет заполнено...</div>
+
+<script>
+function showLevel(n) {
+  document.querySelectorAll('.levels button').forEach((b,i) => b.classList.toggle('active', i===n-1));
+  document.getElementById('level1').classList.toggle('hidden', n!==1);
+  document.getElementById('level-placeholder').classList.toggle('hidden', n===1);
+  document.getElementById('desc').textContent = n===1
+    ? 'Магическое колесо отображает систему элементов, через которые проявляются чары. Чтобы перейти на следующий уровень, нужно потратить 50 очков вдохновения.'
+    : '';
+}
+
+function scaleWheel() {
+  var wrap = document.querySelector('.wheel-wrap');
+  var container = document.querySelector('.wheel-container');
+  if (window.innerWidth < 560) {
+    var s = (window.innerWidth - 50) / 540;
+    container.style.width = window.innerWidth + 'px';
+    container.style.height = (540 * s) + 'px';
+    wrap.style.transform = 'scale(' + s + ')';
+    wrap.style.transformOrigin = 'top left';
+    wrap.style.marginLeft = '30px';
+  } else {
+    container.style.width = '';
+    container.style.height = '';
+    wrap.style.transform = '';
+    wrap.style.marginLeft = '';
+  }
+}
+window.addEventListener('resize', scaleWheel);
+scaleWheel();
+
+// Мобилки: первый тап показывает имя, второй — переход
+if ('ontouchstart' in window || navigator.maxTouchPoints > 0) {
+  document.querySelectorAll('.el').forEach(function(el) {
+    el.addEventListener('click', function(e) {
+      if (!this.classList.contains('selected')) {
+        e.preventDefault();
+        document.querySelectorAll('.el.selected').forEach(function(x) { x.classList.remove('selected'); });
+        this.classList.add('selected');
+      }
+    });
+  });
+}
+</script>
+</body>
+</html>
