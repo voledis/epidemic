@@ -38,11 +38,11 @@
   .ring { position: absolute; border: 1px solid #3a3035; border-radius: 50%; }
   .ring-outer { width:480px; height:480px; top:30px; left:30px; }
   .ring-inner { width:260px; height:260px; top:140px; left:140px; }
-  .ax { position: absolute; background: #3a3035; }
-  .ax-top    { width:1px; height:110px; top:30px;  left:270px; }
-  .ax-bottom { width:1px; height:110px; top:400px; left:270px; }
-  .ax-left   { height:1px; width:110px; top:270px; left:30px; }
-  .ax-right  { height:1px; width:110px; top:270px; left:400px; }
+  .ax { position: absolute; background: #3a3035; width: 1px; height: 110px; }
+  .ax-d1-top { top: 30px;  left: 270px; transform-origin: 0 240px; transform: rotate(45deg); }
+  .ax-d1-bot { top: 400px; left: 270px; transform-origin: 0 -130px; transform: rotate(45deg); }
+  .ax-d2-top { top: 30px;  left: 270px; transform-origin: 0 240px; transform: rotate(-45deg); }
+  .ax-d2-bot { top: 400px; left: 270px; transform-origin: 0 -130px; transform: rotate(-45deg); }
   .el {
     position: absolute; display: flex; flex-direction: column; align-items: center;
     text-decoration: none; transition: transform .2s;
@@ -86,10 +86,10 @@
   <div class="wheel-wrap">
     <div class="ring ring-outer"></div>
     <div class="ring ring-inner"></div>
-    <div class="ax ax-top"></div>
-    <div class="ax ax-bottom"></div>
-    <div class="ax ax-left"></div>
-    <div class="ax ax-right"></div>
+    <div class="ax ax-d1-top"></div>
+    <div class="ax ax-d1-bot"></div>
+    <div class="ax ax-d2-top"></div>
+    <div class="ax ax-d2-bot"></div>
 
     <!-- Внешнее кольцо -->
     <a class="el" href="https://telegra.ph/Nejkos-11-15" target="_blank" style="top:6px;left:246px;">
@@ -126,34 +126,382 @@
   </div>
 </div>
 
+<!-- Уровень 2 -->
+<div class="wheel-container hidden" id="level2">
+  <div class="wheel-wrap">
+    <div class="ring ring-outer"></div>
+    <div class="ring ring-inner"></div>
+    <div class="ax ax-d1-top"></div>
+    <div class="ax ax-d1-bot"></div>
+    <div class="ax ax-d2-top"></div>
+    <div class="ax ax-d2-bot"></div>
+
+    <!-- Внешнее кольцо -->
+    <a class="el" href="https://telegra.ph/Nejkos-11-15" target="_blank" style="top:6px;left:246px;">
+      <img src="нейкос.png" alt="Нейкос"><span class="tip">Нейкос</span>
+    </a>
+    <a class="el pos-right" href="https://telegra.ph/Gibris-11-16" target="_blank" style="top:246px;left:486px;">
+      <img src="гибрис.png" alt="Гибрис"><span class="tip">Гибрис</span>
+    </a>
+    <a class="el" href="https://telegra.ph/Filotes-11-15" target="_blank" style="top:486px;left:246px;">
+      <img src="филотес.png" alt="Филотес"><span class="tip">Филотес</span>
+    </a>
+    <a class="el pos-left" href="https://telegra.ph/Sofrosiune-11-16" target="_blank" style="top:246px;left:6px;">
+      <img src="софросиуне.png" alt="Софросиуне"><span class="tip">Софросиуне</span>
+    </a>
+
+    <!-- Внутреннее кольцо: стихии на осях -->
+    <a class="el" href="https://telegra.ph/Vozduh-11-15-2" target="_blank" style="top:116px;left:246px;">
+      <img src="ветер.png" alt="Воздух"><span class="tip">Воздух</span>
+    </a>
+    <a class="el pos-right" href="https://telegra.ph/Ogon-11-15-3" target="_blank" style="top:246px;left:376px;">
+      <img src="огонь.png" alt="Огонь"><span class="tip">Огонь</span>
+    </a>
+    <a class="el" href="https://telegra.ph/Zemlya-11-15-4" target="_blank" style="top:376px;left:246px;">
+      <img src="земля.png" alt="Земля"><span class="tip">Земля</span>
+    </a>
+    <a class="el pos-left" href="https://telegra.ph/Voda-11-15-2" target="_blank" style="top:246px;left:116px;">
+      <img src="вода.png" alt="Вода"><span class="tip">Вода</span>
+    </a>
+
+    <!-- Внутреннее кольцо: новые элементы на диагоналях -->
+    <a class="el" href="https://telegra.ph/Molniya-11-17" target="_blank" style="top:154px;left:338px;">
+      <img src="молния.png" alt="Молния"><span class="tip">Молния</span>
+    </a>
+    <a class="el" href="https://telegra.ph/Mineral-11-17-5" target="_blank" style="top:338px;left:338px;">
+      <img src="минерал.png" alt="Минерал"><span class="tip">Минерал</span>
+    </a>
+    <a class="el pos-left" href="https://telegra.ph/ZHizn-11-17" target="_blank" style="top:338px;left:154px;">
+      <img src="жизнь.png" alt="Жизнь"><span class="tip">Жизнь</span>
+    </a>
+    <a class="el pos-left" href="https://telegra.ph/Znanie-11-17" target="_blank" style="top:154px;left:154px;">
+      <img src="знание.png" alt="Знание"><span class="tip">Знание</span>
+    </a>
+
+    <!-- Центр: Скверна -->
+    <a class="el selected" href="https://telegra.ph/Skverna-11-15" target="_blank" style="top:246px;left:246px;">
+      <img src="скверна.png" alt="Скверна"><span class="tip">Скверна</span>
+    </a>
+  </div>
+</div>
+
+<!-- Уровень 3 -->
+<div class="wheel-container hidden" id="level3">
+  <div class="wheel-wrap">
+    <div class="ring ring-outer"></div>
+    <div class="ring ring-inner"></div>
+    <div class="ax ax-d1-top"></div>
+    <div class="ax ax-d1-bot"></div>
+    <div class="ax ax-d2-top"></div>
+    <div class="ax ax-d2-bot"></div>
+
+    <!-- Внешнее кольцо -->
+    <a class="el" href="https://telegra.ph/Nejkos-11-15" target="_blank" style="top:6px;left:246px;">
+      <img src="нейкос.png" alt="Нейкос"><span class="tip">Нейкос</span>
+    </a>
+    <a class="el pos-right" href="https://telegra.ph/Gibris-11-16" target="_blank" style="top:246px;left:486px;">
+      <img src="гибрис.png" alt="Гибрис"><span class="tip">Гибрис</span>
+    </a>
+    <a class="el" href="https://telegra.ph/Filotes-11-15" target="_blank" style="top:486px;left:246px;">
+      <img src="филотес.png" alt="Филотес"><span class="tip">Филотес</span>
+    </a>
+    <a class="el pos-left" href="https://telegra.ph/Sofrosiune-11-16" target="_blank" style="top:246px;left:6px;">
+      <img src="софросиуне.png" alt="Софросиуне"><span class="tip">Софросиуне</span>
+    </a>
+
+    <!-- Внутреннее кольцо: стихии на осях -->
+    <a class="el" href="https://telegra.ph/Vozduh-11-15-2" target="_blank" style="top:116px;left:246px;">
+      <img src="ветер.png" alt="Воздух"><span class="tip">Воздух</span>
+    </a>
+    <a class="el pos-right" href="https://telegra.ph/Ogon-11-15-3" target="_blank" style="top:246px;left:376px;">
+      <img src="огонь.png" alt="Огонь"><span class="tip">Огонь</span>
+    </a>
+    <a class="el" href="https://telegra.ph/Zemlya-11-15-4" target="_blank" style="top:376px;left:246px;">
+      <img src="земля.png" alt="Земля"><span class="tip">Земля</span>
+    </a>
+    <a class="el pos-left" href="https://telegra.ph/Voda-11-15-2" target="_blank" style="top:246px;left:116px;">
+      <img src="вода.png" alt="Вода"><span class="tip">Вода</span>
+    </a>
+
+    <!-- Внутреннее кольцо: диагонали (с уровня 2) -->
+    <a class="el" href="https://telegra.ph/Molniya-11-17" target="_blank" style="top:154px;left:338px;">
+      <img src="молния.png" alt="Молния"><span class="tip">Молния</span>
+    </a>
+    <a class="el" href="https://telegra.ph/Mineral-11-17-5" target="_blank" style="top:338px;left:338px;">
+      <img src="минерал.png" alt="Минерал"><span class="tip">Минерал</span>
+    </a>
+    <a class="el pos-left" href="https://telegra.ph/ZHizn-11-17" target="_blank" style="top:338px;left:154px;">
+      <img src="жизнь.png" alt="Жизнь"><span class="tip">Жизнь</span>
+    </a>
+    <a class="el pos-left" href="https://telegra.ph/Znanie-11-17" target="_blank" style="top:154px;left:154px;">
+      <img src="знание.png" alt="Знание"><span class="tip">Знание</span>
+    </a>
+
+    <!-- Между кольцами на осях (уровень 3) -->
+    <a class="el" href="https://telegra.ph/EHris-11-19" target="_blank" style="top:61px;left:246px;">
+      <img src="эрис.png" alt="Эрис"><span class="tip">Эрис</span>
+    </a>
+    <a class="el pos-right" href="https://telegra.ph/Thrasos-11-19" target="_blank" style="top:246px;left:431px;">
+      <img src="тхрасос.png" alt="Тхрасос"><span class="tip">Тхрасос</span>
+    </a>
+    <a class="el" href="https://telegra.ph/Omonojya-11-19" target="_blank" style="top:431px;left:246px;">
+      <img src="омонойя.png" alt="Омонойя"><span class="tip">Омонойя</span>
+    </a>
+    <a class="el pos-left" href="https://telegra.ph/EHvroya-11-19" target="_blank" style="top:246px;left:61px;">
+      <img src="эвроя.png" alt="Эвроя"><span class="tip">Эвроя</span>
+    </a>
+
+    <!-- Центр: Скверна -->
+    <a class="el selected" href="https://telegra.ph/Skverna-11-15" target="_blank" style="top:246px;left:246px;">
+      <img src="скверна.png" alt="Скверна"><span class="tip">Скверна</span>
+    </a>
+  </div>
+</div>
+
+<!-- Уровень 4 -->
+<div class="wheel-container hidden" id="level4">
+  <div class="wheel-wrap">
+    <div class="ring ring-outer"></div>
+    <div class="ring ring-inner"></div>
+    <div class="ax ax-d1-top"></div>
+    <div class="ax ax-d1-bot"></div>
+    <div class="ax ax-d2-top"></div>
+    <div class="ax ax-d2-bot"></div>
+
+    <!-- Внешнее кольцо -->
+    <a class="el" href="https://telegra.ph/Nejkos-11-15" target="_blank" style="top:6px;left:246px;">
+      <img src="нейкос.png" alt="Нейкос"><span class="tip">Нейкос</span>
+    </a>
+    <a class="el pos-right" href="https://telegra.ph/Gibris-11-16" target="_blank" style="top:246px;left:486px;">
+      <img src="гибрис.png" alt="Гибрис"><span class="tip">Гибрис</span>
+    </a>
+    <a class="el" href="https://telegra.ph/Filotes-11-15" target="_blank" style="top:486px;left:246px;">
+      <img src="филотес.png" alt="Филотес"><span class="tip">Филотес</span>
+    </a>
+    <a class="el pos-left" href="https://telegra.ph/Sofrosiune-11-16" target="_blank" style="top:246px;left:6px;">
+      <img src="софросиуне.png" alt="Софросиуне"><span class="tip">Софросиуне</span>
+    </a>
+
+    <!-- Внутреннее кольцо: стихии на осях -->
+    <a class="el" href="https://telegra.ph/Vozduh-11-15-2" target="_blank" style="top:116px;left:246px;">
+      <img src="ветер.png" alt="Воздух"><span class="tip">Воздух</span>
+    </a>
+    <a class="el pos-right" href="https://telegra.ph/Ogon-11-15-3" target="_blank" style="top:246px;left:376px;">
+      <img src="огонь.png" alt="Огонь"><span class="tip">Огонь</span>
+    </a>
+    <a class="el" href="https://telegra.ph/Zemlya-11-15-4" target="_blank" style="top:376px;left:246px;">
+      <img src="земля.png" alt="Земля"><span class="tip">Земля</span>
+    </a>
+    <a class="el pos-left" href="https://telegra.ph/Voda-11-15-2" target="_blank" style="top:246px;left:116px;">
+      <img src="вода.png" alt="Вода"><span class="tip">Вода</span>
+    </a>
+
+    <!-- Внутреннее кольцо: диагонали (уровень 2) -->
+    <a class="el" href="https://telegra.ph/Molniya-11-17" target="_blank" style="top:154px;left:338px;">
+      <img src="молния.png" alt="Молния"><span class="tip">Молния</span>
+    </a>
+    <a class="el" href="https://telegra.ph/Mineral-11-17-5" target="_blank" style="top:338px;left:338px;">
+      <img src="минерал.png" alt="Минерал"><span class="tip">Минерал</span>
+    </a>
+    <a class="el pos-left" href="https://telegra.ph/ZHizn-11-17" target="_blank" style="top:338px;left:154px;">
+      <img src="жизнь.png" alt="Жизнь"><span class="tip">Жизнь</span>
+    </a>
+    <a class="el pos-left" href="https://telegra.ph/Znanie-11-17" target="_blank" style="top:154px;left:154px;">
+      <img src="знание.png" alt="Знание"><span class="tip">Знание</span>
+    </a>
+
+    <!-- Между кольцами на осях (уровень 3) -->
+    <a class="el" href="https://telegra.ph/EHris-11-19" target="_blank" style="top:61px;left:246px;">
+      <img src="эрис.png" alt="Эрис"><span class="tip">Эрис</span>
+    </a>
+    <a class="el pos-right" href="https://telegra.ph/Thrasos-11-19" target="_blank" style="top:246px;left:431px;">
+      <img src="тхрасос.png" alt="Тхрасос"><span class="tip">Тхрасос</span>
+    </a>
+    <a class="el" href="https://telegra.ph/Omonojya-11-19" target="_blank" style="top:431px;left:246px;">
+      <img src="омонойя.png" alt="Омонойя"><span class="tip">Омонойя</span>
+    </a>
+    <a class="el pos-left" href="https://telegra.ph/EHvroya-11-19" target="_blank" style="top:246px;left:61px;">
+      <img src="эвроя.png" alt="Эвроя"><span class="tip">Эвроя</span>
+    </a>
+
+    <!-- На внешнем кольце по диагоналям (уровень 4) -->
+    <a class="el pos-right" href="https://telegra.ph/Svet-11-18" target="_blank" style="top:76px;left:416px;">
+      <img src="свет.png" alt="Свет"><span class="tip">Свет</span>
+    </a>
+    <a class="el pos-right" href="https://telegra.ph/Prityazhenie-11-18" target="_blank" style="top:416px;left:416px;">
+      <img src="притяжение.png" alt="Притяжение"><span class="tip">Притяжение</span>
+    </a>
+    <a class="el pos-left" href="https://telegra.ph/Nekromantiya-11-18" target="_blank" style="top:416px;left:76px;">
+      <img src="некромантия.png" alt="Некромантия"><span class="tip">Некромантия</span>
+    </a>
+    <a class="el pos-left" href="https://telegra.ph/Psiho-11-18" target="_blank" style="top:76px;left:76px;">
+      <img src="психо.png" alt="Психо"><span class="tip">Психо</span>
+    </a>
+
+    <!-- Центр: Скверна -->
+    <a class="el selected" href="https://telegra.ph/Skverna-11-15" target="_blank" style="top:246px;left:246px;">
+      <img src="скверна.png" alt="Скверна"><span class="tip">Скверна</span>
+    </a>
+  </div>
+</div>
+
+<!-- Уровень 5 -->
+<div class="wheel-container hidden" id="level5">
+  <div class="wheel-wrap">
+    <div class="ring ring-outer"></div>
+    <div class="ring ring-inner"></div>
+    <div class="ax ax-d1-top"></div>
+    <div class="ax ax-d1-bot"></div>
+    <div class="ax ax-d2-top"></div>
+    <div class="ax ax-d2-bot"></div>
+
+    <!-- Внешнее кольцо (оси 0°, 90°, 180°, 270°) -->
+    <a class="el" href="https://telegra.ph/Nejkos-11-15" target="_blank" style="top:6px;left:246px;">
+      <img src="нейкос.png" alt="Нейкос"><span class="tip">Нейкос</span>
+    </a>
+    <a class="el pos-right" href="https://telegra.ph/Gibris-11-16" target="_blank" style="top:246px;left:486px;">
+      <img src="гибрис.png" alt="Гибрис"><span class="tip">Гибрис</span>
+    </a>
+    <a class="el" href="https://telegra.ph/Filotes-11-15" target="_blank" style="top:486px;left:246px;">
+      <img src="филотес.png" alt="Филотес"><span class="tip">Филотес</span>
+    </a>
+    <a class="el pos-left" href="https://telegra.ph/Sofrosiune-11-16" target="_blank" style="top:246px;left:6px;">
+      <img src="софросиуне.png" alt="Софросиуне"><span class="tip">Софросиуне</span>
+    </a>
+
+    <!-- Внутреннее кольцо: стихии на осях -->
+    <a class="el" href="https://telegra.ph/Vozduh-11-15-2" target="_blank" style="top:116px;left:246px;">
+      <img src="ветер.png" alt="Воздух"><span class="tip">Воздух</span>
+    </a>
+    <a class="el pos-right" href="https://telegra.ph/Ogon-11-15-3" target="_blank" style="top:246px;left:376px;">
+      <img src="огонь.png" alt="Огонь"><span class="tip">Огонь</span>
+    </a>
+    <a class="el" href="https://telegra.ph/Zemlya-11-15-4" target="_blank" style="top:376px;left:246px;">
+      <img src="земля.png" alt="Земля"><span class="tip">Земля</span>
+    </a>
+    <a class="el pos-left" href="https://telegra.ph/Voda-11-15-2" target="_blank" style="top:246px;left:116px;">
+      <img src="вода.png" alt="Вода"><span class="tip">Вода</span>
+    </a>
+
+    <!-- Внутреннее кольцо: диагонали (уровень 2) -->
+    <a class="el" href="https://telegra.ph/Molniya-11-17" target="_blank" style="top:154px;left:338px;">
+      <img src="молния.png" alt="Молния"><span class="tip">Молния</span>
+    </a>
+    <a class="el" href="https://telegra.ph/Mineral-11-17-5" target="_blank" style="top:338px;left:338px;">
+      <img src="минерал.png" alt="Минерал"><span class="tip">Минерал</span>
+    </a>
+    <a class="el pos-left" href="https://telegra.ph/ZHizn-11-17" target="_blank" style="top:338px;left:154px;">
+      <img src="жизнь.png" alt="Жизнь"><span class="tip">Жизнь</span>
+    </a>
+    <a class="el pos-left" href="https://telegra.ph/Znanie-11-17" target="_blank" style="top:154px;left:154px;">
+      <img src="знание.png" alt="Знание"><span class="tip">Знание</span>
+    </a>
+
+    <!-- Между кольцами на осях (уровень 3) -->
+    <a class="el" href="https://telegra.ph/EHris-11-19" target="_blank" style="top:61px;left:246px;">
+      <img src="эрис.png" alt="Эрис"><span class="tip">Эрис</span>
+    </a>
+    <a class="el pos-right" href="https://telegra.ph/Thrasos-11-19" target="_blank" style="top:246px;left:431px;">
+      <img src="тхрасос.png" alt="Тхрасос"><span class="tip">Тхрасос</span>
+    </a>
+    <a class="el" href="https://telegra.ph/Omonojya-11-19" target="_blank" style="top:431px;left:246px;">
+      <img src="омонойя.png" alt="Омонойя"><span class="tip">Омонойя</span>
+    </a>
+    <a class="el pos-left" href="https://telegra.ph/EHvroya-11-19" target="_blank" style="top:246px;left:61px;">
+      <img src="эвроя.png" alt="Эвроя"><span class="tip">Эвроя</span>
+    </a>
+
+    <!-- Внешнее кольцо: диагонали (уровень 4) -->
+    <a class="el pos-right" href="https://telegra.ph/Svet-11-18" target="_blank" style="top:76px;left:416px;">
+      <img src="свет.png" alt="Свет"><span class="tip">Свет</span>
+    </a>
+    <a class="el pos-right" href="https://telegra.ph/Prityazhenie-11-18" target="_blank" style="top:416px;left:416px;">
+      <img src="притяжение.png" alt="Притяжение"><span class="tip">Притяжение</span>
+    </a>
+    <a class="el pos-left" href="https://telegra.ph/Nekromantiya-11-18" target="_blank" style="top:416px;left:76px;">
+      <img src="некромантия.png" alt="Некромантия"><span class="tip">Некромантия</span>
+    </a>
+    <a class="el pos-left" href="https://telegra.ph/Psiho-11-18" target="_blank" style="top:76px;left:76px;">
+      <img src="психо.png" alt="Психо"><span class="tip">Психо</span>
+    </a>
+
+    <!-- Внешнее кольцо: 8 промежуточных элементов (уровень 5) -->
+    <!-- Между Нейкос (0°) и Свет (45°) -->
+    <a class="el pos-right" href="https://telegra.ph/Fragment-uteryannoj-svyazi-11-19" target="_blank" style="top:28px;left:344px;">
+      <img src="фрагмент утерянной связи.png" alt="Фрагмент утерянной связи"><span class="tip">Фрагмент утерянной связи</span>
+    </a>
+    <!-- Между Свет (45°) и Гибрис (90°) -->
+    <a class="el pos-right" href="https://telegra.ph/Peremeshchenie-11-19" target="_blank" style="top:154px;left:468px;">
+      <img src="перемещение.png" alt="Перемещение"><span class="tip">Перемещение</span>
+    </a>
+    <!-- Между Гибрис (90°) и Притяжение (135°) -->
+    <a class="el pos-right" href="https://telegra.ph/Vremya-11-19" target="_blank" style="top:338px;left:468px;">
+      <img src="время.png" alt="Время"><span class="tip">Время</span>
+    </a>
+    <!-- Между Притяжение (135°) и Филотес (180°) -->
+    <a class="el pos-right" href="https://telegra.ph/Fragment-uteryannoj-svyazi-11-19" target="_blank" style="top:464px;left:344px;">
+      <img src="фрагмент утерянной связи.png" alt="Фрагмент утерянной связи"><span class="tip">Фрагмент утерянной связи</span>
+    </a>
+    <!-- Между Филотес (180°) и Некромантия (225°) -->
+    <a class="el pos-left" href="https://telegra.ph/Fragment-zapretnogo-rituala-11-19" target="_blank" style="top:464px;left:148px;">
+      <img src="фрагмент запретного ритуала.png" alt="Фрагмент запретного ритуала"><span class="tip">Фрагмент запретного ритуала</span>
+    </a>
+    <!-- Между Некромантия (225°) и Софросиуне (270°) -->
+    <a class="el pos-left" href="https://telegra.ph/Prizrak-11-19-4" target="_blank" style="top:338px;left:24px;">
+      <img src="призрак.png" alt="Призрак"><span class="tip">Призрак</span>
+    </a>
+    <!-- Между Софросиуне (270°) и Психо (315°) -->
+    <a class="el pos-left" href="https://telegra.ph/Illyuziya-11-19" target="_blank" style="top:154px;left:24px;">
+      <img src="иллюзия.png" alt="Иллюзия"><span class="tip">Иллюзия</span>
+    </a>
+    <!-- Между Психо (315°) и Нейкос (360°/0°) -->
+    <a class="el pos-left" href="https://telegra.ph/Fragment-zapretnogo-rituala-11-19" target="_blank" style="top:28px;left:148px;">
+      <img src="фрагмент запретного ритуала.png" alt="Фрагмент запретного ритуала"><span class="tip">Фрагмент запретного ритуала</span>
+    </a>
+
+    <!-- Центр: Скверна -->
+    <a class="el selected" href="https://telegra.ph/Skverna-11-15" target="_blank" style="top:246px;left:246px;">
+      <img src="скверна.png" alt="Скверна"><span class="tip">Скверна</span>
+    </a>
+  </div>
+</div>
+
 <div class="placeholder hidden" id="level-placeholder">Скоро будет заполнено...</div>
 
 <script>
+var descs = {
+  1: 'Магическое колесо отображает систему элементов, через которые проявляются чары. Чтобы перейти на следующий уровень, нужно потратить 50 очков вдохновения.',
+  2: 'Магическое колесо отображает систему элементов, через которые проявляются чары. Чтобы перейти на следующий уровень, нужно потратить 100 очков вдохновения.',
+  3: 'Магическое колесо отображает систему элементов, через которые проявляются чары. Как только вы разблокируете этот уровень, вы можете получить элемент земли, воздуха огня или воды даром. Чтобы перейти на следующий уровень, нужно иметь 5 или более элементов и потратить 150 очков вдохновения.',
+  4: 'Магическое колесо отображает систему элементов, через которые проявляются чары. Чтобы перейти на следующий уровень, нужно иметь 7 или более элементов и потратить 200 очков вдохновения.',
+  5: 'Магическое колесо отображает систему элементов, через которые проявляются чары. Это его финальная форма.'
+};
 function showLevel(n) {
   document.querySelectorAll('.levels button').forEach((b,i) => b.classList.toggle('active', i===n-1));
-  document.getElementById('level1').classList.toggle('hidden', n!==1);
-  document.getElementById('level-placeholder').classList.toggle('hidden', n===1);
-  document.getElementById('desc').textContent = n===1
-    ? 'Магическое колесо отображает систему элементов, через которые проявляются чары. Чтобы перейти на следующий уровень, нужно потратить 50 очков вдохновения.'
-    : '';
+  ['level1','level2','level3','level4','level5'].forEach(function(id,i) {
+    document.getElementById(id).classList.toggle('hidden', n!==i+1);
+  });
+  document.getElementById('level-placeholder').classList.toggle('hidden', n<=5);
+  document.getElementById('desc').textContent = descs[n] || '';
 }
 
 function scaleWheel() {
-  var wrap = document.querySelector('.wheel-wrap');
-  var container = document.querySelector('.wheel-container');
-  if (window.innerWidth < 560) {
-    var s = (window.innerWidth - 50) / 540;
-    container.style.width = window.innerWidth + 'px';
-    container.style.height = (540 * s) + 'px';
-    wrap.style.transform = 'scale(' + s + ')';
-    wrap.style.transformOrigin = 'top left';
-    wrap.style.marginLeft = '30px';
-  } else {
-    container.style.width = '';
-    container.style.height = '';
-    wrap.style.transform = '';
-    wrap.style.marginLeft = '';
-  }
+  document.querySelectorAll('.wheel-wrap').forEach(function(wrap) {
+    var container = wrap.parentElement;
+    if (window.innerWidth < 560) {
+      var s = (window.innerWidth - 50) / 540;
+      container.style.width = window.innerWidth + 'px';
+      container.style.height = (540 * s) + 'px';
+      wrap.style.transform = 'scale(' + s + ')';
+      wrap.style.transformOrigin = 'top left';
+      wrap.style.marginLeft = '30px';
+    } else {
+      container.style.width = '';
+      container.style.height = '';
+      wrap.style.transform = '';
+      wrap.style.marginLeft = '';
+    }
+  });
 }
 window.addEventListener('resize', scaleWheel);
 scaleWheel();
